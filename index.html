@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Intro component with sign up form</title>
+
+    <!-- STYLE FILES -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/flexbox-utilities.css" />
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="d-flex flex-justify-center flex-items-center">
+    <main>
+      <div class="container d-flex flex-items-center flex-justify-center">
+        <div class="site-intro d-flex flex-column">
+          <h1 class="site-heading">
+            Learn to code by <br />
+            watching others
+          </h1>
+          <article class="site-desc">
+            See how experienced developers solve problems in real-time. <br />
+            Watching scripted tutorials is great, but understanding how <br />
+            developers think is invaluable.
+          </article>
+        </div>
+        <div class="form-container d-flex flex-column flex-items-center">
+          <h3
+            class="subscription-info d-flex flex-justify-center flex-items-center"
+          >
+            <span><b>Try it free 7 days</b> then </span>
+            $20/mo. thereafter
+          </h3>
+          <form class="d-flex flex-column">
+            <div
+              class="input-container d-flex flex-justify-center flex-items-center"
+            >
+              <input
+                type="text"
+                name="name"
+                id="firstName"
+                placeholder="First Name"
+              />
+              <img src="./images/icon-error.svg" alt="" class="error-icon" />
+            </div>
+            <p class="error-text">ERROR YAZISI</p>
+
+            <div
+              class="input-container d-flex flex-justify-center flex-items-center"
+            >
+              <input
+                type="text"
+                name="lastName"
+                id="lastName"
+                placeholder="Last Name"
+              />
+              <img src="./images/icon-error.svg" alt="" class="error-icon" />
+            </div>
+            <p class="error-text"></p>
+
+            <div
+              class="input-container d-flex flex-justify-center flex-items-center"
+            >
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email Address"
+              />
+              <img src="./images/icon-error.svg" alt="" class="error-icon" />
+            </div>
+            <p class="error-text"></p>
+
+            <div
+              class="input-container d-flex flex-justify-center flex-items-center"
+            >
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+              />
+              <img src="./images/icon-error.svg" alt="" class="error-icon" />
+            </div>
+            <p class="error-text"></p>
+
+            <button type="submit" class="form-btn">
+              Claim your free trial
+            </button>
+            <small
+              >By clicking the button, you are agreeing to our
+              <a href="#">Terms and Services </a></small
+            >
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
