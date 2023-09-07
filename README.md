@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here]
-- Live Site URL: [Add live site URL here]
+- Solution URL: [https://github.com/sliyarli/intro-component-with-signup-form]
+- Live Site URL: [https://sliyarli.github.io/intro-component-with-signup-form/]
 
 ## My process
 
