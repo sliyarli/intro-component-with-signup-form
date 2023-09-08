@@ -4,7 +4,7 @@ function isValidEmail(email) {
   return emailRegex.test(email);
 }
 
-// Function to get error elements associated with an input
+// Function to get error elements
 function getErrorElements(inputElement) {
   const errorText = inputElement.parentElement.nextElementSibling;
   const errorIcon = inputElement.nextElementSibling;
@@ -29,11 +29,10 @@ function removeError(inputElement) {
   inputElement.style.borderColor = "var(--neutral-grayish-blue)";
 }
 
-// Function to validate an input with a custom validation function
-function validateInput(inputElement, validationFunction, errorMessage) {
-  const value = inputElement.value.trim();
-
-  if (!validationFunction(value)) {
+// Generic validation function
+function validateInput(inputElement, validationFn, errorMessage) {
+  const inputValue = inputElement.value.trim();
+  if (!validationFn(inputValue)) {
     displayError(inputElement, errorMessage);
     return false;
   } else {
@@ -42,38 +41,35 @@ function validateInput(inputElement, validationFunction, errorMessage) {
   }
 }
 
-// Add input event listeners to trigger real-time validation for First Name
+// Usage example:
 const firstNameInput = document.getElementById("firstName");
 firstNameInput.addEventListener("input", () => {
   validateInput(
     firstNameInput,
-    (value) => value !== "",
+    (value) => value !== "", // Example validation function (non-empty)
     "First Name cannot be empty"
   );
 });
 
-// Add input event listeners to trigger real-time validation for Last Name
 const lastNameInput = document.getElementById("lastName");
 lastNameInput.addEventListener("input", () => {
   validateInput(
     lastNameInput,
-    (value) => value !== "",
+    (value) => value !== "", // Example validation function (non-empty)
     "Last Name cannot be empty"
   );
 });
 
-// Add input event listeners to trigger real-time validation for Email
 const emailInput = document.getElementById("email");
 emailInput.addEventListener("input", () => {
   validateInput(emailInput, isValidEmail, "Looks like this is not an email");
 });
 
-// Add input event listeners to trigger real-time validation for Password
 const passwordInput = document.getElementById("password");
 passwordInput.addEventListener("input", () => {
   validateInput(
     passwordInput,
-    (value) => value !== "",
+    (value) => value !== "", // Example validation function (non-empty)
     "Password cannot be empty"
   );
 });
@@ -82,36 +78,19 @@ passwordInput.addEventListener("input", () => {
 function validateForm(event) {
   event.preventDefault();
 
-  const firstNameInput = document.getElementById("firstName");
-  const lastNameInput = document.getElementById("lastName");
-  const emailInput = document.getElementById("email");
-  const passwordInput = document.getElementById("password");
+  const inputFields = document.querySelectorAll("input");
+  let allInputsValid = true;
 
-  const isFirstNameValid = validateInput(
-    firstNameInput,
-    (value) => value !== "",
-    "First Name cannot be empty"
-  );
+  inputFields.forEach((input) => {
+    if (
+      !validateInput(input, (value) => value !== "", "Field cannot be empty")
+    ) {
+      allInputsValid = false;
+    }
+  });
 
-  const isLastNameValid = validateInput(
-    lastNameInput,
-    (value) => value !== "",
-    "Last Name cannot be empty"
-  );
-
-  const isEmailValid = validateInput(
-    emailInput,
-    isValidEmail,
-    "Looks like this is not an email"
-  );
-
-  const isPasswordValid = validateInput(
-    passwordInput,
-    (value) => value !== "",
-    "Password cannot be empty"
-  );
-
-  if (isFirstNameValid && isLastNameValid && isEmailValid && isPasswordValid) {
+  if (allInputsValid) {
+    // If all inputs are valid, show an alert
     alert("All inputs are valid! Form can be submitted.");
   }
 }
