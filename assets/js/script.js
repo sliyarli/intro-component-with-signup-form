@@ -4,11 +4,16 @@ function isValidEmail(email) {
   return emailRegex.test(email);
 }
 
+function getErrorElements(inputElement) {
+  const errorText = inputElement.parentElement.nextElementSibling;
+  const errorIcon = inputElement.nextElementSibling;
+  return { errorText, errorIcon };
+}
+
 // Function to display an error message and icon for an input field
 function displayError(inputElement, errorMessage) {
   // Get the error text element and error icon element based on the input element
-  const errorText = inputElement.parentElement.nextElementSibling;
-  const errorIcon = inputElement.nextElementSibling;
+  const { errorText, errorIcon } = getErrorElements(inputElement);
 
   // Set the error message text, make it visible, and show the error icon
   errorText.textContent = errorMessage;
@@ -22,8 +27,7 @@ function displayError(inputElement, errorMessage) {
 // Function to remove the error message and icon for an input field
 function removeError(inputElement) {
   // Get the error text element and error icon element based on the input element
-  const errorText = inputElement.parentElement.nextElementSibling;
-  const errorIcon = inputElement.nextElementSibling;
+  const { errorText, errorIcon } = getErrorElements(inputElement);
 
   // Clear the error message text, hide it, and hide the error icon
   errorText.textContent = "";
